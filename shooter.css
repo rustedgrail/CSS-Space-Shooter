@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#main {
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+#ship {
+    position: relative;
+    display: inline;
+    top: 550px;
+    left: 300px;
+}
