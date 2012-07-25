@@ -1,10 +1,4 @@
 (function() {
-    var moves = { w: {top: -10, left: 0},
-                s: {top: 10, left:0 },
-                a: {top: 0, left: -10},
-                d: {top: 0, left: 10}
-    };
-
     CSS = {
         drawShip: function() {
             var ship = document.createElement('div');
@@ -14,16 +8,15 @@
             $('#main').append(ship);
         },
 
-        moveShip: function(key) {
-            console.log(key);
-            console.log($('#ship'));
+        moveShip: function(e) {
             var position = $('#ship').position();
-            var move = { top: '+=' + moves[key].top,
-                            left: '+=' + moves[key].left
+            var move = { top: e.pageY,
+                            left: e.pageX
             };
-            $('#ship').animate(position);
+            console.log(move);
+            $('#ship').animate(move, 0);
         }
     };
 
-    $('#main').keypress(CSS.moveShip);
+    $('#main').mousemove(CSS.moveShip);
 }());

@@ -7,5 +7,6 @@ describe 'the ship', ->
     expect($('#ship')).toExist()
 
   it 'can move', ->
+    topPos = $('#ship').position().top
     CSS.moveShip 'w'
-    expect($('ship').top).toBe 540
+    expect($('#ship').position().top).toBe topPos - 10

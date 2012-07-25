@@ -3,15 +3,17 @@
 
   describe('the ship', function() {
     beforeEach(function() {
-      return setFixtures('<div id=main ></div>');
+      setFixtures('<div id=main ></div>');
+      return CSS.drawShip();
     });
     it('can be drawn', function() {
-      CSS.drawShip();
       return expect($('#ship')).toExist();
     });
     return it('can move', function() {
+      var topPos;
+      topPos = $('#ship').position().top;
       CSS.moveShip('w');
-      return expect($('ship').top).toBe(540);
+      return expect($('#ship').position().top).toBe(topPos - 10);
     });
   });
 
